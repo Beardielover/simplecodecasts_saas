@@ -28,9 +28,8 @@ class ContactsController < ApplicationController
           m.subject = 'Contact Form From: ' + name
           m.text = body
      end
-
         puts client.send(mail) 
-      # ContactMailer.contact_email(name, email, body).deliver
+      # ContactMailer.contact_email(name, email, body).deliver unused now
       
        flash[:success] = 'Message sent.'
        redirect_to new_contact_path
