@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
           m.text = body
      end
         puts client.send(mail) 
-      # ContactMailer.contact_email(name, email, body)
+      # ContactMailer.contact_email(name, email, body) .
       
        flash[:success] = 'Message sent.'
        redirect_to new_contact_path
