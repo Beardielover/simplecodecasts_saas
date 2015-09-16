@@ -4,7 +4,9 @@ class ContactsController < ApplicationController
    end
       
     require 'sendgrid-ruby'
-            
+    require 'yaml'
+    
+          
    def create
   @contact = Contact.new(contact_params)
      if @contact.save
@@ -12,14 +14,21 @@ class ContactsController < ApplicationController
        email = params[:contact][:email]
        body = params[:contact][:comments]
        
-       client = SendGrid::Client.new(api_user: 'Kairus', api_key: 'handywandy99')
+       @APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
+  
+       username = @APP_CONFIG['credentials']['username']
+       password = @APP_CONFIG['credentials']['password']
+       site_email = @APP_CONFIG['credentials']['email']
+  
+       client = SendGrid::Client.new(api_user: username, api_key: password)
+       
       
       mail = SendGrid::Mail.new do |m|
-          m.to = 'ritchiekai@gmail.com'
+          m.to = site_email
           m.from = email
           m.subject = 'Contact Form From: ' + name
           m.text = body
-        end
+     end
 
         puts client.send(mail) 
       # ContactMailer.contact_email(name, email, body).deliver
