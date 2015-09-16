@@ -20,8 +20,7 @@ class ContactsController < ApplicationController
        password = @APP_CONFIG['credentials']['password']
        site_email = @APP_CONFIG['credentials']['email']
   
-       client = SendGrid::Client.new(api_user: username, api_key: password)
-       
+       client = SendGrid::Client.new(api_user: username, api_key: password) 
       
       mail = SendGrid::Mail.new do |m|
           m.to = site_email
