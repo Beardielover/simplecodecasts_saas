@@ -1,5 +1,5 @@
 class DropProducts < ActiveRecord::Migration
   def change
-    # drop_table :users
+    # drop_table :profiles
   end
 end
