@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   
+  public
   def create
     super do |resource|
       if params[:plan]

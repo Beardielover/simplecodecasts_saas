@@ -47,10 +47,14 @@ gem 'spring',        group: :development
 #Devise Gem
 gem 'devise', '3.4.1'
 
-
+#Stripe for Credit Card
 gem 'stripe', '1.16.1'
 
+#Figaro for authentification
 gem 'figaro', '1.0.0'
+
+#PaperClip for images
+gem 'paperclip', '4.2.1'
 
 
 # Use ActiveModel has_secure_password
